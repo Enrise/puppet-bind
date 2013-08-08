@@ -255,12 +255,12 @@ class bind (
   $forwarders          = params_lookup( 'forwarders' ),
   $rfc1912_zone_file   = params_lookup( 'rfc1912_zone_file' ),
   $magic_tag           = undefined,
-  $zone_header_template = params_lookup( 'zone_header_template' ),
-  $managing_contact     = params_lookup( 'managing_contact' ),
-  $nameservers          = params_lookup( 'nameservers' ),
-  $acl_recursion_subnets = params_lookup( 'acl_recursion_subnets' ),
+  $zone_header_template    = params_lookup( 'zone_header_template' ),
+  $managing_contact        = params_lookup( 'managing_contact' ),
+  $nameservers             = params_lookup( 'nameservers' ),
+  $acl_recursion_subnets   = params_lookup( 'acl_recursion_subnets' ),
   $custom_zonefile_content = params_lookup( 'custom_zonefile_content' ),
-  ) inherits bind::params {
+  ) inherits ::bind::params {
 
   $bool_source_dir_purge=any2bool($source_dir_purge)
   $bool_service_autorestart=any2bool($service_autorestart)

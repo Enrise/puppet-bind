@@ -31,4 +31,8 @@ options {
     listen-on-v6 { any; };
     
     allow-recursion { acl_recursions; };
+    
+    // There is no point in releasing this information. And even obscuring info
+    // delays or holds off potential attackers.
+    version "Not available";
 };
