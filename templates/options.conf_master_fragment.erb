@@ -1,0 +1,6 @@
+
+zone "<%= @use_zone_name %>" IN {
+  type master;
+  file "<%= @path %>";
+  allow-update { none; };
+};

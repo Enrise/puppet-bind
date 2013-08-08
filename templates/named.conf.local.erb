@@ -1,0 +1,5 @@
+// File managed by Puppet
+
+<% if @enable_rfc1918_defaults %>
+include "/etc/bind/zones.rfc1918";
+<% end %>

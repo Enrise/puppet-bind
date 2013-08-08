@@ -1,0 +1,19 @@
+; File managed by puppet
+
+$TTL 14400
+$ORIGIN <%= @use_zone_name %>.
+ 
+; Specify the primary nameserver ns1.example.com in SOA
+@ 14400 IN SOA <%= @nameservers[0] %>. <%= @managing_contact %>. (
+                <%= Time.now.to_i %>; Serial in unix time
+                10800; refresh seconds
+                3600; retry
+                604800; expire
+                38400; minimum
+                );
+
+$ORIGIN <%= @use_zone_name %>.
+
+<% @nameservers.each do |nameserver| -%>
+    IN  NS  <%= nameserver %>.
+<% end -%>
