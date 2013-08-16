@@ -84,7 +84,7 @@ class bind::params {
   }
 
   $config_file_init = $::operatingsystem ? {
-    /(?i:Debian|Ubuntu|Mint)/ => '/etc/default/bind',
+    /(?i:Debian|Ubuntu|Mint)/ => '/etc/default/bind9',
     default                      => '/etc/sysconfig/bind',
   }
 
