@@ -260,7 +260,7 @@ class bind (
   $nameservers             = params_lookup( 'nameservers' ),
   $acl_recursion_subnets   = params_lookup( 'acl_recursion_subnets' ),
   $custom_zonefile_content = params_lookup( 'custom_zonefile_content' ),
-  $enable_ipv6             = params_lookup( 'enable_ipv6')
+  $enable_ipv6             = params_lookup( 'enable_ipv6'),
   ) inherits ::bind::params {
 
   $bool_source_dir_purge=any2bool($source_dir_purge)
@@ -430,6 +430,20 @@ class bind (
     noop    => $bind::bool_noops,
   }
   
+  file { 'default.init':
+    ensure  => $bind::manage_file,
+    path    => $bind::config_file_init,
+    mode    => $bind::config_file_mode,
+    owner   => 'root',
+    group   => 'root',
+    require => Package[$bind::package],
+    notify  => $bind::manage_service_autorestart,
+    source  => $bind::manage_file_source,
+    content => template('bind/default.init-ubuntu.erb'),
+    replace => $bind::manage_file_replace,
+    audit   => $bind::manage_audit,
+    noop    => $bind::bool_noops,
+  }
 
   include concat::setup
 

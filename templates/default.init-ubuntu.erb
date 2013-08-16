@@ -1,0 +1,11 @@
+# File Managed by Puppet
+
+# run resolvconf?
+RESOLVCONF=no
+
+# startup options for the server
+<% if scope['bind::enable_ipv6'] == true %>
+OPTIONS="-u bind"
+<% else %>
+OPTIONS="-u bind -4"
+<% end %>
