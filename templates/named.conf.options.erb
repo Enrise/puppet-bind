@@ -28,8 +28,9 @@ options {
     dnssec-validation auto;
 
     auth-nxdomain no;    # conform to RFC1035
+    <% if scope['bind::enable_ipv6'] == true %>
     listen-on-v6 { any; };
-    
+    <% end %>
     allow-recursion { acl_recursions; };
     
     // There is no point in releasing this information. And even obscuring info

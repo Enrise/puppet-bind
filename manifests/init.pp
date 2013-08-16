@@ -260,6 +260,7 @@ class bind (
   $nameservers             = params_lookup( 'nameservers' ),
   $acl_recursion_subnets   = params_lookup( 'acl_recursion_subnets' ),
   $custom_zonefile_content = params_lookup( 'custom_zonefile_content' ),
+  $enable_ipv6             = params_lookup( 'enable_ipv6')
   ) inherits ::bind::params {
 
   $bool_source_dir_purge=any2bool($source_dir_purge)

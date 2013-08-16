@@ -108,13 +108,14 @@ class bind::params {
   $port = '53'
   $enable_tcp = true
   $enable_udp = true
+  $enable_ipv6 = true
   
   $acl_recursion_subnets = [ '127.0.0.1',
                              '192.168.0.0/16',
                              '172.16.0.0/12',
                              '10.0.0.0/8' ]
 
-  $forwarders = '0.0.0.0;'
+  $forwarders = ''
   $enable_rfc1918_defaults = true
   $zone_header_template = 'bind/zone_header.erb'
   $managing_contact     = "devops.${::domain}"
