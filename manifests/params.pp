@@ -29,7 +29,7 @@ class bind::params {
   }
 
   $process = $::operatingsystem ? {
-    default => 'bind',
+    default => 'named',
   }
 
   $process_args = $::operatingsystem ? {
