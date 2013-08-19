@@ -452,9 +452,9 @@ class bind (
     ensure => directory
   }
 
+  Bind::Zone <<| tag == $magic_tag |>>
+
   Bind::Record::Exported <<| tag == $magic_tag |>> 
-  
-  Bind::Zone::Exported <<| tag == $magic_tag |>>
 
   # The whole bind configuration directory can be recursively overriden
   if $bind::source_dir {
