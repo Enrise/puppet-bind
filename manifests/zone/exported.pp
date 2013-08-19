@@ -16,7 +16,7 @@ define bind::zone::exported (
   }
 
   @@::bind::zone { "${::fqdn}_${horizon}_${use_zone_name}":
-    zone     => $use_zone_name,
+    zone_name=> $use_zone_name,
     horizon  => $horizon,
     tag      => $magic_tag,
   }
