@@ -506,17 +506,6 @@ class bind (
         }
       }
 
-      if $enable_udp {
-        monitor::port { "bind_udp_${bind::port}":
-          protocol => 'udp',
-          port     => $bind::port,
-          target   => $bind::monitor_target,
-          tool     => $bind::monitor_tool,
-          enable   => $bind::manage_monitor,
-          noop     => $bind::bool_noops,
-        }
-      }
-
     }
     if $bind::service != '' {
       monitor::process { 'bind_process':
